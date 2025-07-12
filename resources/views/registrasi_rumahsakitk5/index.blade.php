@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Kuliah</title>
+    <title>Jadwal Dokter</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -11,17 +11,16 @@
 <body>
     <div class="container py-5">
         <div class="text-center mb-4">
-            <h2 class="header-title fw-bold">Jadwal Kuliah</h2>
-            <p class="text-muted mb-0">Muhamad Andhika Mahaputra Rohman</p>
-            <p class="text-muted">241351031</p>
+            <h2 class="header-title fw-bold">Jadwal Dokter</h2>
+            <p class="text-muted mb-0">registrasi_rumahsakitk5</p>
             <hr class="w-25 mx-auto">
         </div>
 
         <div class="card shadow-lg border-0 rounded">
             <div class="card-body">
                 <div class="mb-3 text-end">
-                    <a href="{{ route('JadwalKuliahMuhamadAndhika.create') }}" class="btn btn-success">
-                        <i class="fa fa-plus me-1"></i> Tambah Jadwal
+                    <a href="{{ route('registrasi_rumahsakitk5.create') }}" class="btn btn-success mb-3">ADD</a>
+                        <table class="table table-bordered">
                     </a>
                 </div>
 
@@ -29,38 +28,27 @@
                     <table class="table table-striped table-bordered align-middle">
                         <thead>
                             <tr>
-                                <th>Kode Matkul</th>
-                                <th>Nama Matkul</th>
-                                <th>Jurusan</th>
-                                <th>Tahun Akademik</th>
-                                <th>Semester</th>
-                                <th>Nama Dosen</th>
-                                <th>Ruang</th>
-                                <th>Hari</th>
-                                <th>Jam Mulai</th>
-                                <th>Jam Selesai</th>
+                                <th>Nama Dokter</th>
+                                <th>Dokter Spesialis</th>
+                                <th>Tanggal Berapa</th>
+                                <th>Jam Berapa</th>
                                 <th>Tindakan</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($dataArray as $data)
                             <tr>
-                                <td>{{ $data->kode_mk }}</td>
-                                <td>{{ $data->nama_mk }}</td>
-                                <td>{{ $data->jurusan }}</td>
-                                <td>{{ $data->tahun_akademik }}</td>
-                                <td>{{ $data->semester }}</td>
-                                <td>{{ $data->nama_dosen }}</td>
-                                <td>{{ $data->ruang }}</td>
-                                <td>{{ $data->hari }}</td>
-                                <td>{{ $data->jam_mulai }}</td>
+                                <td>{{ $data->nama_dokter }}</td>
+                                <td>{{ $data->dokter_spesialis }}</td>
+                                <td>{{ $data->tanggal_berapa }}</td>
+                                <td>{{ $data->jam_berapa }}</td>
                                 <td>{{ $data->jam_selesai }}</td>
                                 <td>
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('JadwalKuliahMuhamadAndhika.destroy', $data->id) }}" method="POST" class="d-flex justify-content-center gap-1">
-                                        <a href="{{ route('JadwalKuliahMuhamadAndhika.show', $data->id) }}" class="btn btn-sm btn-secondary">
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('registrasi_rumahsakitk5.destroy', $data->id) }}" method="POST" class="d-flex justify-content-center gap-1">
+                                        <a href="{{ route('registrasi_rumahsakitk5.show', $data->id) }}" class="btn btn-sm btn-secondary">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('JadwalKuliahMuhamadAndhika.edit', $data->id) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('registrasi_rumahsakitk5.edit', $data->id) }}" class="btn btn-sm btn-primary">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         @csrf

@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-use App\Http\Controllers\JadwalKuliahMuhamadAndhikaController;
+use App\Http\Controllers\registrasi_rumahsakitk5;
 
-Route::resource('/JadwalKuliahMuhamadAndhika', JadwalKuliahMuhamadAndhikaController::class);
+Route::resource('registrasi_rumahsakitk5', registrasi_rumahsakitk5::class);
 
 Route::get('/', function () {
     return view('welcome');
